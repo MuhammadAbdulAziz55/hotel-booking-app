@@ -25,7 +25,10 @@ const New = ({ inputs, title }) => {
       const { url } = uploadRes.data;
       const newUser = { ...info, img: url };
       console.log(newUser);
-      await axios.post("http://localhost:8800/api/auth/register", newUser);
+      await axios.post(
+        "https://hotel-booking-server-rsat.onrender.com/api/auth/register",
+        newUser
+      );
     } catch (err) {
       console.log(err);
     }

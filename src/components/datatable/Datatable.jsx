@@ -12,7 +12,7 @@ const Datatable = ({ columns }) => {
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();
   const { data, loading, error } = useFetch(
-    `http://localhost:8800/api/${path}`
+    `https://hotel-booking-server-rsat.onrender.com/api/${path}`
   );
 
   console.log(data);
@@ -23,7 +23,9 @@ const Datatable = ({ columns }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/api/${path}/${id}`);
+      await axios.delete(
+        `https://hotel-booking-server-rsat.onrender.com/api/${path}/${id}`
+      );
       const updatedData = list.filter((item) => item._id === id);
       setList(updatedData);
 
@@ -101,7 +103,7 @@ export default Datatable;
 //   console.log("path", path);
 
 //   // console.log("list", list);
-//   const { data, loading } = useFetch(`http://localhost:8800/api/${path}`);
+//   const { data, loading } = useFetch(`https://hotel-booking-server-rsat.onrender.com/api/${path}`);
 //   console.log("data", data);
 //   const [list, setList] = useState();
 //   useEffect(() => {
@@ -110,7 +112,7 @@ export default Datatable;
 
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:8800/api/${path}/${id}`);
+//       await axios.delete(`https://hotel-booking-server-rsat.onrender.com/api/${path}/${id}`);
 //       setList(list.filter((item) => item._id !== id));
 //     } catch (err) {}
 //   };

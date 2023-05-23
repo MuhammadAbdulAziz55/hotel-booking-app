@@ -23,7 +23,7 @@ const Login = () => {
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post(
-        "http://localhost:8800/api/auth/login",
+        "https://hotel-booking-server-rsat.onrender.com/api/auth/login",
         credentials
       );
       if (res.data.isAdmin) {
